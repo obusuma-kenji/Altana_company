@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>「サステナ経営」の夜明け ― 株式会社オルタナの全貌</title>
+<meta name="description" content="SDGsという言葉すらなかった2006年から、サステナ経営の潮流を創ってきた株式会社オルタナ。そのエコシステムと知の軌跡。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1d1a;
+  --paper:#f4f1ea;
+  --paper-dark:#e8e4d8;
+  --accent:#d4581c;
+  --accent-deep:#a8400f;
+  --eco:#2d5a3d;
+  --eco-light:#4a7a5a;
+  --gold:#b8935a;
+  --line:#2d302d;
+  --muted:#6b6960;
+  --blueprint:#1e3a5f;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Zen Kaku Gothic New','Shippori Mincho',serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.mincho{font-family:'Shippori Mincho','Cormorant Garamond',serif}
+.mono{font-family:'JetBrains Mono',monospace}
+
+/* ===== Noise + Grain overlay ===== */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:9999;
+  mix-blend-mode:multiply;
+  opacity:.35;
+}
+
+/* ===== Navigation ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;
+  z-index:100;
+  padding:18px 40px;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(244,241,234,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(26,29,26,.08);
+  transition:all .4s ease;
+}
+.nav-brand{
+  font-family:'Shippori Mincho',serif;
+  font-size:20px;font-weight:700;
+  letter-spacing:.08em;
+  display:flex;align-items:center;gap:12px;
+}
+.nav-brand::before{
+  content:'';display:inline-block;
+  width:28px;height:28px;
+  background:var(--ink);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>") center/contain no-repeat;
+  mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>") center/contain no-repeat;
+}
+.nav-links{
+  display:flex;gap:32px;
+  list-style:none;
+}
+.nav-links a{
+  color:var(--ink);text-decoration:none;
+  font-size:13px;letter-spacing:.12em;
+  position:relative;
+  padding-bottom:4px;
+  font-weight:500;
+}
+.nav-links a::after{
+  content:'';position:absolute;
+  bottom:0;left:0;width:0;height:1px;
+  background:var(--accent);
+  transition:width .4s ease;
+}
+.nav-links a:hover::after{width:100%}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* ===== Hero ===== */
+.hero{
+  min-height:100vh;
+  padding:120px 40px 80px;
+  position:relative;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:60px;
+  align-items:center;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;top:0;right:0;bottom:0;
+  width:55%;
+  background:
+    linear-gradient(135deg,rgba(26,29,26,.03) 1px,transparent 1px) 0 0/40px 40px,
+    linear-gradient(45deg,rgba(26,29,26,.03) 1px,transparent 1px) 0 0/40px 40px;
+  opacity:.6;
+}
+.hero-text{
+  position:relative;z-index:2;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:32px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.2em;
+  color:var(--muted);
+}
+.hero-meta-line{flex:1;height:1px;background:var(--muted);opacity:.4}
+.hero h1{
+  font-family:'Shippori Mincho',serif;
+  font-size:clamp(40px,6.5vw,84px);
+  font-weight:700;
+  line-height:1.12;
+  letter-spacing:-.01em;
+  margin-bottom:32px;
+}
+.hero h1 .accent{
+  color:var(--accent);
+  font-style:italic;
+  font-family:'Cormorant Garamond',serif;
+  font-weight:500;
+}
+.hero h1 .ruby{
+  display:inline-block;
+  position:relative;
+}
+.hero h1 .ruby::before{
+  content:'SUSTAINABILITY';
+  position:absolute;
+  top:-24px;left:0;
+  font-family:'Cormorant Garamond',serif;
+  font-size:11px;
+  letter-spacing:.3em;
+  color:var(--accent);
+  font-weight:400;
+  font-style:normal;
+  white-space:nowrap;
+}
+.hero-subtitle{
+  font-family:'Shippori Mincho',serif;
+  font-size:22px;
+  line-height:1.9;
+  margin-bottom:40px;
+  max-width:540px;
+}
+.hero-tagline{
+  display:inline-block;
+  padding:14px 24px;
+  border:1px solid var(--ink);
+  font-size:14px;
+  letter-spacing:.15em;
+  position:relative;
+  font-weight:500;
+}
+.hero-tagline::before{
+  content:'';
+  position:absolute;
+  top:-6px;left:-6px;
+  right:6px;bottom:6px;
+  border:1px solid var(--accent);
+  z-index:-1;
+}
+.hero-visual{
+  position:relative;
+  z-index:2;
+  aspect-ratio:1/1;
+  max-width:560px;
+  justify-self:center;
+}
+.hero-visual img{
+  width:100%;height:100%;
+  object-fit:cover;
+  filter:grayscale(.3) contrast(1.05);
+  border:1px solid rgba(26,29,26,.1);
+  box-shadow:24px 24px 0 rgba(212,88,28,.15);
+}
+.hero-badge{
+  position:absolute;
+  top:-20px;left:-20px;
+  background:var(--ink);
+  color:var(--paper);
+  padding:12px 20px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:.25em;
+  z-index:3;
+}
+.hero-year{
+  position:absolute;
+  bottom:-30px;right:-20px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:120px;
+  font-weight:300;
+  color:var(--accent);
+  line-height:1;
+  letter-spacing:-.04em;
+  font-style:italic;
+}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:100px 24px 60px}
+  .hero::before{display:none}
+  .hero-year{font-size:80px}
+}
+
+/* ===== Section base ===== */
+section{padding:120px 40px;position:relative}
+@media(max-width:768px){section{padding:80px 24px}}
+
+.section-header{
+  max-width:1200px;
+  margin:0 auto 80px;
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:40px;
+  align-items:end;
+}
+@media(max-width:768px){
+  .section-header{grid-template-columns:1fr;gap:20px}
+}
+.section-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(80px,10vw,140px);
+  font-weight:300;
+  line-height:1;
+  color:var(--accent);
+  font-style:italic;
+  letter-spacing:-.04em;
+}
+.section-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:.3em;
+  color:var(--muted);
+  margin-bottom:12px;
+  display:block;
+}
+.section-title{
+  font-family:'Shippori Mincho',serif;
+  font-size:clamp(28px,4vw,48px);
+  font-weight:700;
+  line-height:1.3;
+  margin-bottom:24px;
+}
+.section-lead{
+  font-size:17px;
+  line-height:2;
+  color:var(--ink);
+  max-width:640px;
+  opacity:.85;
+}
+
+/* ===== Chapter 1: The Dilemma ===== */
+.dilemma{
+  background:linear-gradient(180deg,var(--paper) 0%,var(--paper-dark) 100%);
+  position:relative;
+}
+.dilemma::before{
+  content:'PROLOGUE';
+  position:absolute;
+  top:40px;right:40px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:180px;
+  font-style:italic;
+  font-weight:300;
+  color:var(--ink);
+  opacity:.04;
+  letter-spacing:-.04em;
+  pointer-events:none;
+}
+.dilemma-grid{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+}
+@media(max-width:768px){.dilemma-grid{grid-template-columns:1fr}}
+
+.dilemma-card{
+  background:var(--paper);
+  padding:40px;
+  border-left:3px solid var(--accent);
+  position:relative;
+}
+.dilemma-card h3{
+  font-family:'Shippori Mincho',serif;
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:20px;
+  line-height:1.5;
+}
+.dilemma-card p{
+  font-size:15px;
+  line-height:1.9;
+  color:var(--muted);
+}
+.dilemma-card .quote-mark{
+  font-family:'Cormorant Garamond',serif;
+  font-size:80px;
+  color:var(--accent);
+  line-height:.5;
+  opacity:.2;
+  position:absolute;
+  top:20px;right:20px;
+  font-style:italic;
+}
+
+/* ===== Chapter 2: Origin ===== */
+.origin{
+  background:var(--ink);
+  color:var(--paper);
+  position:relative;
+  overflow:hidden;
+}
+.origin::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(244,241,234,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(244,241,234,.03) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+.origin .section-num{color:var(--accent)}
+.origin .section-label{color:rgba(244,241,234,.5)}
+.origin .section-title{color:var(--paper)}
+.origin .section-lead{color:rgba(244,241,234,.8)}
+.origin-wrapper{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.blueprint-card{
+  background:rgba(244,241,234,.04);
+  border:1px solid rgba(244,241,234,.15);
+  padding:60px;
+  margin-top:60px;
+  position:relative;
+}
+.blueprint-card::before,
+.blueprint-card::after{
+  content:'';
+  position:absolute;
+  width:40px;height:40px;
+  border:1px solid var(--accent);
+}
+.blueprint-card::before{top:-1px;left:-1px;border-right:none;border-bottom:none}
+.blueprint-card::after{bottom:-1px;right:-1px;border-left:none;border-top:none}
+.blueprint-header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-bottom:24px;margin-bottom:32px;
+  border-bottom:1px solid rgba(244,241,234,.15);
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:.25em;
+  color:rgba(244,241,234,.6);
+}
+.blueprint-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:40px;
+}
+@media(max-width:768px){.blueprint-grid{grid-template-columns:1fr;gap:24px}}
+.blueprint-item .label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:.25em;
+  color:var(--accent);
+  margin-bottom:12px;
+  display:block;
+}
+.blueprint-item .value{
+  font-family:'Shippori Mincho',serif;
+  font-size:22px;
+  line-height:1.5;
+  color:var(--paper);
+  font-weight:500;
+}
+
+/* ===== PDF viewer section ===== */
+.pdf-section{
+  background:var(--paper-dark);
+  position:relative;
+}
+.pdf-intro{
+  max-width:1200px;
+  margin:0 auto 60px;
+}
+.pdf-wrapper{
+  max-width:1200px;
+  margin:0 auto;
+}
+.pdf-card{
+  background:var(--paper);
+  border:1px solid rgba(26,29,26,.1);
+  margin-bottom:80px;
+  box-shadow:0 10px 40px rgba(26,29,26,.08);
+  position:relative;
+}
+.pdf-header{
+  padding:32px 40px;
+  border-bottom:1px solid rgba(26,29,26,.1);
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:24px;
+  align-items:center;
+}
+.pdf-number{
+  font-family:'Cormorant Garamond',serif;
+  font-size:60px;
+  font-style:italic;
+  font-weight:300;
+  color:var(--accent);
+  line-height:1;
+}
+.pdf-meta .label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:.25em;
+  color:var(--muted);
+  margin-bottom:8px;
+  display:block;
+}
+.pdf-meta h3{
+  font-family:'Shippori Mincho',serif;
+  font-size:24px;
+  font-weight:700;
+  line-height:1.4;
+}
+.pdf-meta .sub{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:6px;
+}
+.pdf-download{
+  padding:10px 20px;
+  background:var(--ink);
+  color:var(--paper);
+  text-decoration:none;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:.2em;
+  transition:all .3s ease;
+  white-space:nowrap;
+}
+.pdf-download:hover{
+  background:var(--accent);
+}
+.pdf-viewer{
+  width:100%;
+  height:720px;
+  border:none;
+  background:#2d2d2d;
+  display:block;
+}
+@media(max-width:768px){
+  .pdf-header{grid-template-columns:auto 1fr;gap:16px;padding:24px}
+  .pdf-number{font-size:42px}
+  .pdf-meta h3{font-size:18px}
+  .pdf-download{grid-column:1/-1;text-align:center}
+  .pdf-viewer{height:500px}
+}
+
+/* ===== Infographic section ===== */
+.infographic{
+  background:var(--paper);
+  padding:80px 40px;
+}
+.infographic-wrapper{
+  max-width:1400px;
+  margin:0 auto;
+}
+.infographic-grid{
+  display:grid;
+  gap:40px;
+  margin-top:40px;
+}
+.infographic-item{
+  background:var(--paper);
+  border:1px solid rgba(26,29,26,.1);
+  padding:24px;
+  position:relative;
+  transition:transform .4s ease,box-shadow .4s ease;
+}
+.infographic-item:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px rgba(26,29,26,.12);
+}
+.infographic-item img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+.infographic-caption{
+  padding-top:16px;
+  font-family:'Shippori Mincho',serif;
+  font-size:14px;
+  color:var(--muted);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.infographic-caption .num{
+  font-family:'Cormorant Garamond',serif;
+  color:var(--accent);
+  font-style:italic;
+  font-size:20px;
+}
+
+/* ===== Audio section ===== */
+.audio-section{
+  background:linear-gradient(180deg,var(--paper-dark) 0%,var(--paper) 100%);
+  padding:120px 40px;
+}
+.audio-wrapper{
+  max-width:1000px;
+  margin:0 auto;
+}
+.audio-grid{
+  display:grid;
+  gap:32px;
+  margin-top:60px;
+}
+.audio-card{
+  background:var(--paper);
+  border:1px solid rgba(26,29,26,.12);
+  padding:32px;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:32px;
+  align-items:center;
+  position:relative;
+  transition:all .3s ease;
+}
+.audio-card:hover{
+  border-color:var(--accent);
+  box-shadow:0 8px 24px rgba(212,88,28,.1);
+}
+.audio-visual{
+  width:120px;height:120px;
+  background:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.audio-visual::before{
+  content:'';
+  position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 30% 30%,var(--accent) 0%,transparent 50%),
+    radial-gradient(circle at 70% 70%,var(--eco) 0%,transparent 50%);
+  opacity:.6;
+}
+.audio-visual svg{
+  width:48px;height:48px;
+  color:var(--paper);
+  position:relative;z-index:2;
+}
+.audio-content{
+  flex:1;
+}
+.audio-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:.3em;
+  color:var(--accent);
+  margin-bottom:8px;
+}
+.audio-title{
+  font-family:'Shippori Mincho',serif;
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:16px;
+  line-height:1.5;
+}
+.audio-card audio,
+.audio-card video{
+  width:100%;
+  max-width:100%;
+}
+.audio-card video{
+  border-radius:4px;
+}
+@media(max-width:768px){
+  .audio-card{grid-template-columns:1fr;gap:16px;padding:24px}
+  .audio-visual{width:100%;height:80px}
+}
+
+/* ===== Closing ===== */
+.closing{
+  background:var(--ink);
+  color:var(--paper);
+  padding:160px 40px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.closing::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse at center top,rgba(212,88,28,.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.closing-inner{
+  max-width:900px;
+  margin:0 auto;
+  position:relative;z-index:2;
+}
+.closing-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(30px,5vw,56px);
+  font-style:italic;
+  font-weight:400;
+  line-height:1.4;
+  margin-bottom:32px;
+  color:var(--paper);
+}
+.closing-quote .mark{
+  color:var(--accent);
+  font-size:1.3em;
+}
+.closing-text{
+  font-family:'Shippori Mincho',serif;
+  font-size:18px;
+  line-height:2;
+  color:rgba(244,241,234,.75);
+  max-width:680px;
+  margin:0 auto 48px;
+}
+.closing-cta{
+  display:inline-block;
+  padding:18px 40px;
+  background:var(--accent);
+  color:var(--paper);
+  text-decoration:none;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  letter-spacing:.25em;
+  transition:all .3s ease;
+  position:relative;
+}
+.closing-cta::after{
+  content:' →';
+  transition:margin-left .3s ease;
+}
+.closing-cta:hover{background:var(--accent-deep)}
+.closing-cta:hover::after{margin-left:8px}
+
+/* ===== Footer ===== */
+footer{
+  background:var(--paper);
+  padding:60px 40px 40px;
+  border-top:1px solid rgba(26,29,26,.1);
+}
+.footer-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+  margin-bottom:40px;
+}
+@media(max-width:768px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand{
+  font-family:'Shippori Mincho',serif;
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:16px;
+}
+.footer-desc{
+  font-size:14px;
+  line-height:1.8;
+  color:var(--muted);
+  max-width:400px;
+}
+.footer-col h4{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:.25em;
+  color:var(--accent);
+  margin-bottom:16px;
+  text-transform:uppercase;
+}
+.footer-col ul{list-style:none}
+.footer-col li{
+  font-size:14px;
+  margin-bottom:10px;
+  color:var(--muted);
+}
+.footer-col a{
+  color:var(--muted);
+  text-decoration:none;
+  transition:color .3s ease;
+}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{
+  max-width:1200px;
+  margin:0 auto;
+  padding-top:24px;
+  border-top:1px solid rgba(26,29,26,.1);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:.2em;
+  color:var(--muted);
+}
+@media(max-width:768px){
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+}
+
+/* ===== Scroll reveal ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity 1s ease,transform 1s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== Decorative elements ===== */
+.deco-line{
+  width:60px;
+  height:2px;
+  background:var(--accent);
+  margin:20px 0;
+}
+
+/* Print credit in corner */
+.corner-credit{
+  position:fixed;
+  bottom:20px;right:20px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;
+  letter-spacing:.2em;
+  color:var(--muted);
+  writing-mode:vertical-rl;
+  opacity:.5;
+  z-index:50;
+  pointer-events:none;
+}
+@media(max-width:768px){.corner-credit{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">ALTERNA CHRONICLE</div>
+  <ul class="nav-links">
+    <li><a href="#origin">Origin</a></li>
+    <li><a href="#ecosystem">Ecosystem</a></li>
+    <li><a href="#documents">Documents</a></li>
+    <li><a href="#voices">Voices</a></li>
+  </ul>
+</nav>
+
+<div class="corner-credit">KENJISPARK × ALTERNA — 2026</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-meta">
+      <span>EST. 2006.09.26</span>
+      <span class="hero-meta-line"></span>
+      <span>TOKYO, JP</span>
+    </div>
+    <h1>
+      「<span class="ruby">サステナ経営</span>」<br>
+      の<span class="accent">夜明け</span>
+    </h1>
+    <p class="hero-subtitle">
+      SDGsという言葉すらなかった時代に、<br>
+      荒野に道を切り拓いた孤高の挑戦。<br>
+      そして、集いし知の軌跡。
+    </p>
+    <span class="hero-tagline">時代が彼らに追いついたのではない。彼らが、時代を創ったのだ。</span>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-badge">VOL.01 / CHRONICLE</div>
+    <img src="オルタナ３.png" alt="株式会社オルタナ全貌" loading="lazy">
+    <div class="hero-year">2006</div>
+  </div>
+</section>
+
+<!-- ============ DILEMMA ============ -->
+<section class="dilemma" id="dilemma">
+  <div class="section-header">
+    <div class="section-num">I</div>
+    <div>
+      <span class="section-label">CHAPTER 01 — THE DILEMMA</span>
+      <h2 class="section-title">利益か、世界か。<br>現代経営の「荒波」。</h2>
+      <div class="deco-line"></div>
+      <p class="section-lead">
+        気候変動、人権、生物多様性——。従来の財務諸表には載っていない新しいリスクが、経営の生死を分ける時代。数字という共通言語だけでは、進むべき道が見えなくなった。
+      </p>
+    </div>
+  </div>
+
+  <div class="dilemma-grid">
+    <div class="dilemma-card">
+      <span class="quote-mark">"</span>
+      <h3>突如点滅し始めた「複雑な警告ランプ」</h3>
+      <p>既存のビジネススクールのマニュアルや、いつもの経営コンサルタントでは即座に直せない。サプライチェーンに潜む「見えない連鎖」が企業の信頼を揺るがす。</p>
+    </div>
+    <div class="dilemma-card">
+      <span class="quote-mark">"</span>
+      <h3>現場をすり潰す「矛盾する2つの命令」</h3>
+      <p>社長からは「今四半期の利益目標を絶対に達成しろ」。人事・広報からは「サステナビリティの取り組みに時間を割け」。現場はこの「摩擦」の中で日々消耗している。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ORIGIN ============ -->
+<section class="origin" id="origin">
+  <div class="origin-wrapper">
+    <div class="section-header">
+      <div class="section-num">II</div>
+      <div>
+        <span class="section-label">CHAPTER 02 — ORIGIN</span>
+        <h2 class="section-title">2006年、<br>荒野に産声を上げた会社。</h2>
+        <div class="deco-line"></div>
+        <p class="section-lead">
+          環境問題は「コスト」であり、ビジネスの中心にはなり得ないと誰もが信じていた。その常識に抗うため、ひとつの会社が立ち上がった。武器は「ペン」。サステナビリティを経営のど真ん中へ。
+        </p>
+      </div>
+    </div>
+
+    <div class="blueprint-card">
+      <div class="blueprint-header">
+        <span>▸ BLUEPRINT DATA</span>
+        <span>REF.NO — ALT.2006.0926</span>
+      </div>
+      <div class="blueprint-grid">
+        <div class="blueprint-item">
+          <span class="label">▸ PROJECT CODE</span>
+          <div class="value">株式会社オルタナ設立</div>
+        </div>
+        <div class="blueprint-item">
+          <span class="label">▸ FOUNDER</span>
+          <div class="value">代表 森 摂<br>共同創業者 新樂 智夫</div>
+        </div>
+        <div class="blueprint-item">
+          <span class="label">▸ INITIAL CAPITAL</span>
+          <div class="value">孤高の信念。<br>資本金 2,909万円</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INFOGRAPHICS / ECOSYSTEM ============ -->
+<section class="infographic" id="ecosystem">
+  <div class="infographic-wrapper">
+    <div class="section-header">
+      <div class="section-num">III</div>
+      <div>
+        <span class="section-label">CHAPTER 03 — THE ECOSYSTEM</span>
+        <h2 class="section-title">発信から、実装へ。<br>サステナ変革を回す「巨大な歯車」。</h2>
+        <div class="deco-line"></div>
+        <p class="section-lead">
+          メディア(オルタナ本誌)・コミュニティ(SBL)・検定・塾・総研。5つのギアが連動し、知を実践へと変換する。これは単なる雑誌ではない。変革を志す者たちの「組織」である。
+        </p>
+      </div>
+    </div>
+
+    <div class="infographic-grid">
+      <div class="infographic-item">
+        <img src="オルタナ３.png" alt="株式会社オルタナの全貌" loading="lazy">
+        <div class="infographic-caption">
+          <span>株式会社オルタナの全貌 — コア・アイデンティティと事業領域</span>
+          <span class="num">— 01</span>
+        </div>
+      </div>
+      <div class="infographic-item">
+        <img src="オルタナ２.png" alt="ビジネス生存戦略の地図" loading="lazy">
+        <div class="infographic-caption">
+          <span>サステナ経営の荒波を乗りこなせ — オルタナが提示するビジネス生存戦略の地図</span>
+          <span class="num">— 02</span>
+        </div>
+      </div>
+      <div class="infographic-item">
+        <img src="オルタナ１.png" alt="SDGsビジネスの新・生存戦略" loading="lazy">
+        <div class="infographic-caption">
+          <span>利益か、世界か — SDGsビジネスの「新・生存戦略」の4象限</span>
+          <span class="num">— 03</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PDF DOCUMENTS ============ -->
+<section class="pdf-section" id="documents">
+  <div class="pdf-intro">
+    <div class="section-header">
+      <div class="section-num">IV</div>
+      <div>
+        <span class="section-label">CHAPTER 04 — THE DOCUMENTS</span>
+        <h2 class="section-title">3冊の「設計図」。</h2>
+        <div class="deco-line"></div>
+        <p class="section-lead">
+          サステナ経営の「夜明け」を描くオルタナの足跡、「利益か社会か」のジレンマを解くテーゼ、そして現代経営者のための生存戦略スキル。3つのドキュメントが、未踏の領域への地図を描く。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pdf-wrapper">
+
+    <!-- PDF 1 -->
+    <div class="pdf-card">
+      <div class="pdf-header">
+        <div class="pdf-number">01</div>
+        <div class="pdf-meta">
+          <span class="label">▸ DOCUMENT I / HISTORY</span>
+          <h3>「サステナ経営」の夜明け</h3>
+          <div class="sub">株式会社オルタナ ― 孤高の挑戦と、集いし知の軌跡</div>
+        </div>
+        <a href="The_Alterna_Ecosystem.pdf" class="pdf-download" download>DOWNLOAD ↓</a>
+      </div>
+      <iframe class="pdf-viewer" src="The_Alterna_Ecosystem.pdf#view=FitH" title="The Alterna Ecosystem" loading="lazy"></iframe>
+    </div>
+
+    <!-- PDF 2 -->
+    <div class="pdf-card">
+      <div class="pdf-header">
+        <div class="pdf-number">02</div>
+        <div class="pdf-meta">
+          <span class="label">▸ DOCUMENT II / THESIS</span>
+          <h3>The Profit Machine Blueprint</h3>
+          <div class="sub">「利益か、社会か」のジレンマを解く ― 次世代の利益エンジンへ</div>
+        </div>
+        <a href="The_Profit_Machine_Blueprint.pdf" class="pdf-download" download>DOWNLOAD ↓</a>
+      </div>
+      <iframe class="pdf-viewer" src="The_Profit_Machine_Blueprint.pdf#view=FitH" title="The Profit Machine Blueprint" loading="lazy"></iframe>
+    </div>
+
+    <!-- PDF 3 -->
+    <div class="pdf-card">
+      <div class="pdf-header">
+        <div class="pdf-number">03</div>
+        <div class="pdf-meta">
+          <span class="label">▸ DOCUMENT III / SURVIVAL</span>
+          <h3>Sustainability Survival Strategy</h3>
+          <div class="sub">経営のダッシュボードに、見慣れない警告ランプが点滅し始めたら</div>
+        </div>
+        <a href="Sustainability_Survival_Strategy.pdf" class="pdf-download" download>DOWNLOAD ↓</a>
+      </div>
+      <iframe class="pdf-viewer" src="Sustainability_Survival_Strategy.pdf#view=FitH" title="Sustainability Survival Strategy" loading="lazy"></iframe>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ AUDIO / VIDEO ============ -->
+<section class="audio-section" id="voices">
+  <div class="audio-wrapper">
+    <div class="section-header">
+      <div class="section-num">V</div>
+      <div>
+        <span class="section-label">CHAPTER 05 — VOICES</span>
+        <h2 class="section-title">知の軌跡、その「声」を聴く。</h2>
+        <div class="deco-line"></div>
+        <p class="section-lead">
+          オルタナの挑戦、サステナ経営の哲学、そして現場の声。3つのコンテンツで、エコシステムの呼吸を体感する。
+        </p>
+      </div>
+    </div>
+
+    <div class="audio-grid">
+
+      <!-- Audio 1 -->
+      <div class="audio-card">
+        <div class="audio-visual">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+        </div>
+        <div class="audio-content">
+          <div class="audio-label">▸ AUDIO / EPISODE 01</div>
+          <div class="audio-title">オルタナ企業紹介 ― 第1部</div>
+          <audio controls preload="metadata">
+            <source src="Altana_company_01_small.m4a" type="audio/mp4">
+            お使いのブラウザはaudio要素に対応していません。
+          </audio>
+        </div>
+      </div>
+
+      <!-- Audio 2 -->
+      <div class="audio-card">
+        <div class="audio-visual">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+        </div>
+        <div class="audio-content">
+          <div class="audio-label">▸ AUDIO / EPISODE 02</div>
+          <div class="audio-title">オルタナ企業紹介 ― 第2部</div>
+          <audio controls preload="metadata">
+            <source src="Altana_company_02_small.m4a" type="audio/mp4">
+            お使いのブラウザはaudio要素に対応していません。
+          </audio>
+        </div>
+      </div>
+
+      <!-- Video 3 -->
+      <div class="audio-card">
+        <div class="audio-visual">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="audio-content">
+          <div class="audio-label">▸ VIDEO / EPISODE 03</div>
+          <div class="audio-title">オルタナ企業紹介 ― 映像編</div>
+          <video controls preload="metadata">
+            <source src="Altana_company_03_small.mp4" type="video/mp4">
+            お使いのブラウザはvideo要素に対応していません。
+          </video>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="closing">
+  <div class="closing-inner">
+    <div class="closing-quote">
+      <span class="mark">"</span>「サステナ経営」の潮流を捉えるだけではない。<br>
+      自ら、そのうねりを創り出す。<span class="mark">"</span>
+    </div>
+    <p class="closing-text">
+      誰も見向きもしなかった荒野に道を切り拓いてから約20年。社会はようやく、彼らの描いた青写真に追いつこうとしている。だが、オルタナの挑戦はここで終わらない。次の未踏の領域へ、旅は続く。
+    </p>
+    <a href="https://www.alterna.co.jp" target="_blank" rel="noopener" class="closing-cta">VISIT ALTERNA.CO.JP</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">ALTERNA CHRONICLE</div>
+      <p class="footer-desc">
+        株式会社オルタナの全貌をまとめたドキュメントアーカイブ。サステナ経営のパイオニアが描く、次世代ビジネスの設計図。
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Chapters</h4>
+      <ul>
+        <li><a href="#dilemma">I. The Dilemma</a></li>
+        <li><a href="#origin">II. Origin</a></li>
+        <li><a href="#ecosystem">III. Ecosystem</a></li>
+        <li><a href="#documents">IV. Documents</a></li>
+        <li><a href="#voices">V. Voices</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Links</h4>
+      <ul>
+        <li><a href="https://www.alterna.co.jp" target="_blank" rel="noopener">alterna.co.jp</a></li>
+        <li><a href="The_Alterna_Ecosystem.pdf" download>DL. Chronicle</a></li>
+        <li><a href="The_Profit_Machine_Blueprint.pdf" download>DL. Blueprint</a></li>
+        <li><a href="Sustainability_Survival_Strategy.pdf" download>DL. Survival</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 ALTERNA CHRONICLE — ARCHIVE PAGE</span>
+    <span>PRESENTED BY KENJISPARK AI士業ラボ</span>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+    }
+  });
+},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+
+document.querySelectorAll('.section-header, .dilemma-card, .infographic-item, .pdf-card, .audio-card, .blueprint-card').forEach(el=>{
+  el.classList.add('reveal');
+  observer.observe(el);
+});
+
+// Nav hide on scroll down, show on scroll up
+let lastScroll = 0;
+const nav = document.querySelector('.nav');
+window.addEventListener('scroll',()=>{
+  const cur = window.pageYOffset;
+  if(cur > lastScroll && cur > 200){
+    nav.style.transform = 'translateY(-100%)';
+  } else {
+    nav.style.transform = 'translateY(0)';
+  }
+  lastScroll = cur;
+});
+</script>
+</body>
+</html>
